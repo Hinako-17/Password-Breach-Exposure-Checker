@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Password Breach Exposure Checker",
+  "version": "2.6.7",
+  "description": "Checks password strength/breaches. Shows only strong suggestions (score \u2265 3). Popup hides on blur or outside click.",
+  "permissions": [],
+  "host_permissions": [
+    "https://api.pwnedpasswords.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "utils.js",
+        "content_script.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "ui.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "action": {
+    "default_title": "Password Checker"
+  }
+}
